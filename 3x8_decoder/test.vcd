@@ -1,5 +1,5 @@
 $date
-	Mon Aug 28 16:49:34 2023
+	Mon Aug 28 20:16:48 2023
 $end
 $version
 	Icarus Verilog
@@ -10,87 +10,81 @@ $end
 $scope module test_dec_3x8 $end
 $var wire 8 ! y [7:0] $end
 $var wire 8 " not_y [7:0] $end
-$var reg 1 # a $end
-$var reg 1 $ b $end
-$var reg 1 % c $end
-$var reg 1 & en $end
+$var reg 1 # en $end
+$var reg 3 $ in [2:0] $end
 $scope module dut $end
-$var wire 1 # a $end
-$var wire 1 $ b $end
-$var wire 1 % c $end
-$var wire 1 & en $end
-$var reg 8 ' not_y [7:0] $end
-$var reg 8 ( y [7:0] $end
+$var wire 1 # en $end
+$var wire 3 % in [2:0] $end
+$var reg 8 & not_y [7:0] $end
+$var reg 8 ' y [7:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
-$comment Show the parameter values. $end
-$dumpall
-$end
 #0
 $dumpvars
-b11111111 (
-bx '
-1&
-x%
-x$
-x#
+b11111111 '
+bx &
+bx %
+bx $
+1#
 bx "
 b11111111 !
 $end
 #5
 b1 "
-b1 '
+b1 &
 b11111110 !
-b11111110 (
-0%
-0$
+b11111110 '
+b0 $
+b0 %
 0#
-0&
 #10
 b10 "
-b10 '
+b10 &
 b11111101 !
-b11111101 (
-1%
+b11111101 '
+b1 $
+b1 %
 #15
 b100 "
-b100 '
+b100 &
 b11111011 !
-b11111011 (
-0%
-1$
+b11111011 '
+b10 $
+b10 %
 #20
 b1000 "
-b1000 '
+b1000 &
 b11110111 !
-b11110111 (
-1%
+b11110111 '
+b11 $
+b11 %
 #25
 b10000 "
-b10000 '
+b10000 &
 b11101111 !
-b11101111 (
-0%
-0$
-1#
+b11101111 '
+b100 $
+b100 %
 #30
 b100000 "
-b100000 '
+b100000 &
 b11011111 !
-b11011111 (
-1%
+b11011111 '
+b101 $
+b101 %
 #35
 b1000000 "
-b1000000 '
+b1000000 &
 b10111111 !
-b10111111 (
-0%
-1$
+b10111111 '
+b110 $
+b110 %
 #40
 b10000000 "
-b10000000 '
+b10000000 &
 b1111111 !
-b1111111 (
-1%
+b1111111 '
+b111 $
+b111 %
 #45
