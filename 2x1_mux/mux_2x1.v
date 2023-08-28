@@ -1,7 +1,7 @@
 module mux_2x1(y, a, b, sel);
-    input [3:0] a,b; 
+    input [2:0] a,b; 
     input sel; 
-    output reg [3:0] y;
+    output reg [2:0] y;
 
     always @(a,b,sel)
         begin
@@ -10,6 +10,6 @@ module mux_2x1(y, a, b, sel);
             else if (sel==1'b1)
                 y=b;
             else
-                y=4'bxxxx;
+                y=3'bxxx;
         end
 endmodule
