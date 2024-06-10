@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000018391caecc0 .scope module, "divby2" "divby2" 2 4;
+ .timescale -9 -12;
+v0000018391cf5810_0 .var "D", 0 0;
+v0000018391cf58b0_0 .net "Q", 0 0, v0000018391cf5770_0;  1 drivers
+v0000018391cf5950_0 .net "Qb", 0 0, v0000018391caeef0_0;  1 drivers
+v0000018391cab840_0 .var "clk", 0 0;
+S_0000018391cf55e0 .scope module, "pDFF" "posDFF" 2 11, 3 1 0, S_0000018391caecc0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "in";
+    .port_info 2 /OUTPUT 1 "out";
+    .port_info 3 /OUTPUT 1 "not_out";
+v0000018391caee50_0 .net "clk", 0 0, v0000018391cab840_0;  1 drivers
+v0000018391ca6f00_0 .net "in", 0 0, v0000018391cf5810_0;  1 drivers
+v0000018391caeef0_0 .var "not_out", 0 0;
+v0000018391cf5770_0 .var "out", 0 0;
+E_0000018391cac0f0 .event posedge, v0000018391caee50_0;
+    .scope S_0000018391cf55e0;
+T_0 ;
+    %wait E_0000018391cac0f0;
+    %load/vec4 v0000018391ca6f00_0;
+    %assign/vec4 v0000018391cf5770_0, 0;
+    %load/vec4 v0000018391ca6f00_0;
+    %inv;
+    %assign/vec4 v0000018391caeef0_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000018391caecc0;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000018391cab840_0, 0, 1;
+T_1.0 ;
+    %delay 1000, 0;
+    %load/vec4 v0000018391cab840_0;
+    %inv;
+    %store/vec4 v0000018391cab840_0, 0, 1;
+    %jmp T_1.0;
+    %end;
+    .thread T_1;
+    .scope S_0000018391caecc0;
+T_2 ;
+    %load/vec4 v0000018391cf5950_0;
+    %assign/vec4 v0000018391cf5810_0, 0;
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "div2.v";
+    "./posDFF.v";

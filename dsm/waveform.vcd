@@ -1,0 +1,27 @@
+$date
+	Sun Feb 25 10:11:32 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_delta_sigma_modulator $end
+$var reg 1 ! clk $end
+$var reg 1 " data_in $end
+$var reg 1 # reset $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1#
+0"
+0!
+$end
+#5
+1!
+0#

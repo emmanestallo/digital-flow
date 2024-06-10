@@ -1,0 +1,147 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000025b9391df40 .scope module, "tb_div2or3" "tb_div2or3" 2 4;
+ .timescale -9 -12;
+v0000025b939b1030_0 .var "clk_in", 0 0;
+v0000025b939b18f0_0 .net "clk_out", 0 0, v0000025b93963d60_0;  1 drivers
+v0000025b939b1850_0 .var "mod", 0 0;
+S_0000025b9391e0d0 .scope module, "uut" "divBy2or3" 2 10, 3 4 0, S_0000025b9391df40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk_in";
+    .port_info 1 /INPUT 1 "mod";
+    .port_info 2 /OUTPUT 1 "Qb";
+v0000025b939b17b0_0 .net "Qb", 0 0, v0000025b93963d60_0;  alias, 1 drivers
+v0000025b939b1b70_0 .net "and1_out", 0 0, L_0000025b9396b300;  1 drivers
+v0000025b939b1df0_0 .net "and2_out", 0 0, L_0000025b9396b060;  1 drivers
+v0000025b939b1490_0 .net "clk_in", 0 0, v0000025b939b1030_0;  1 drivers
+v0000025b939b1e90_0 .net "dff1_out", 0 0, v0000025b93916eb0_0;  1 drivers
+v0000025b939b1f30_0 .net "dff1_outb", 0 0, v0000025b93916e10_0;  1 drivers
+v0000025b939b12b0_0 .net "dff2_out", 0 0, v0000025b93963e00_0;  1 drivers
+v0000025b939b1210_0 .net "mod", 0 0, v0000025b939b1850_0;  1 drivers
+S_0000025b939660c0 .scope module, "and1" "andGate" 3 14, 4 1 0, S_0000025b9391e0d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+L_0000025b9396b300 .functor AND 1, v0000025b93963e00_0, v0000025b939b1850_0, C4<1>, C4<1>;
+v0000025b9391bf00_0 .net "a", 0 0, v0000025b93963e00_0;  alias, 1 drivers
+v0000025b93956f60_0 .net "b", 0 0, v0000025b939b1850_0;  alias, 1 drivers
+v0000025b9391e260_0 .net "out", 0 0, L_0000025b9396b300;  alias, 1 drivers
+S_0000025b93966250 .scope module, "and2" "andGate" 3 16, 4 1 0, S_0000025b9391e0d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+L_0000025b9396b060 .functor AND 1, v0000025b93963d60_0, v0000025b93916e10_0, C4<1>, C4<1>;
+v0000025b9391e300_0 .net "a", 0 0, v0000025b93963d60_0;  alias, 1 drivers
+v0000025b939663e0_0 .net "b", 0 0, v0000025b93916e10_0;  alias, 1 drivers
+v0000025b93966480_0 .net "out", 0 0, L_0000025b9396b060;  alias, 1 drivers
+S_0000025b93916b40 .scope module, "dff1" "dFlipFlop" 3 15, 5 1 0, S_0000025b9391e0d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "in";
+    .port_info 2 /OUTPUT 1 "out";
+    .port_info 3 /OUTPUT 1 "not_out";
+v0000025b93916cd0_0 .net "clk", 0 0, v0000025b939b1030_0;  alias, 1 drivers
+v0000025b93916d70_0 .net "in", 0 0, L_0000025b9396b300;  alias, 1 drivers
+v0000025b93916e10_0 .var "not_out", 0 0;
+v0000025b93916eb0_0 .var "out", 0 0;
+E_0000025b939557f0 .event posedge, v0000025b93916cd0_0;
+S_0000025b93963a90 .scope module, "dff2" "dFlipFlop" 3 17, 5 1 0, S_0000025b9391e0d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "in";
+    .port_info 2 /OUTPUT 1 "out";
+    .port_info 3 /OUTPUT 1 "not_out";
+v0000025b93963c20_0 .net "clk", 0 0, v0000025b939b1030_0;  alias, 1 drivers
+v0000025b93963cc0_0 .net "in", 0 0, L_0000025b9396b060;  alias, 1 drivers
+v0000025b93963d60_0 .var "not_out", 0 0;
+v0000025b93963e00_0 .var "out", 0 0;
+    .scope S_0000025b93916b40;
+T_0 ;
+    %wait E_0000025b939557f0;
+    %load/vec4 v0000025b93916d70_0;
+    %assign/vec4 v0000025b93916eb0_0, 0;
+    %load/vec4 v0000025b93916d70_0;
+    %inv;
+    %assign/vec4 v0000025b93916e10_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000025b93963a90;
+T_1 ;
+    %wait E_0000025b939557f0;
+    %load/vec4 v0000025b93963cc0_0;
+    %assign/vec4 v0000025b93963e00_0, 0;
+    %load/vec4 v0000025b93963cc0_0;
+    %inv;
+    %assign/vec4 v0000025b93963d60_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000025b9391df40;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000025b939b1030_0, 0, 1;
+T_2.0 ;
+    %delay 500, 0;
+    %load/vec4 v0000025b939b1030_0;
+    %inv;
+    %store/vec4 v0000025b939b1030_0, 0, 1;
+    %jmp T_2.0;
+    %end;
+    .thread T_2;
+    .scope S_0000025b9391df40;
+T_3 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000025b939b1850_0, 0, 1;
+    %delay 15000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000025b939b1850_0, 0, 1;
+    %delay 15000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000025b939b1850_0, 0, 1;
+    %end;
+    .thread T_3;
+    .scope S_0000025b9391df40;
+T_4 ;
+    %vpi_call 2 24 "$dumpfile", "divBy2or3.vcd" {0 0 0};
+    %vpi_call 2 25 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000025b9391df40 {0 0 0};
+    %end;
+    .thread T_4;
+    .scope S_0000025b9391df40;
+T_5 ;
+    %pushi/vec4 1, 0, 1;
+    %force/vec4 v0000025b93916eb0_0;
+    %pushi/vec4 0, 0, 1;
+    %force/vec4 v0000025b93916e10_0;
+    %pushi/vec4 1, 0, 1;
+    %force/vec4 v0000025b93963e00_0;
+    %pushi/vec4 0, 0, 1;
+    %force/vec4 v0000025b93963d60_0;
+    %delay 1000, 0;
+    %release/reg v0000025b93916eb0_0, 0, 1;
+    %release/reg v0000025b93916e10_0, 0, 1;
+    %release/reg v0000025b93963e00_0, 0, 1;
+    %release/reg v0000025b93963d60_0, 0, 1;
+    %end;
+    .thread T_5;
+    .scope S_0000025b9391df40;
+T_6 ;
+    %delay 50000, 0;
+    %vpi_call 2 40 "$finish" {0 0 0};
+    %end;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "tb_div2or3.v";
+    "./div2or3.v";
+    "./and_gate.v";
+    "./posDFF.v";

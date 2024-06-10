@@ -1,0 +1,89 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000238cb0b6aa0 .scope module, "divBy2or3" "divBy2or3" 2 4;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "clk_in";
+    .port_info 1 /INPUT 1 "mod";
+    .port_info 2 /OUTPUT 1 "Qb";
+v00000238cb1039f0_0 .net "Qb", 0 0, v00000238cb0b4d00_0;  1 drivers
+v00000238cb1042b0_0 .net "and1_out", 0 0, L_00000238cb0b5f10;  1 drivers
+v00000238cb104490_0 .net "and2_out", 0 0, L_00000238cb1ebde0;  1 drivers
+o00000238cb0b7218 .functor BUFZ 1, C4<z>; HiZ drive
+v00000238cb103bd0_0 .net "clk_in", 0 0, o00000238cb0b7218;  0 drivers
+v00000238cb1038b0_0 .net "dff1_out", 0 0, v00000238cb0b4990_0;  1 drivers
+v00000238cb104030_0 .net "dff1_outb", 0 0, v00000238cb0b48f0_0;  1 drivers
+v00000238cb104210_0 .net "dff2_out", 0 0, v00000238cb0b4da0_0;  1 drivers
+o00000238cb0b7008 .functor BUFZ 1, C4<z>; HiZ drive
+v00000238cb1040d0_0 .net "mod", 0 0, o00000238cb0b7008;  0 drivers
+S_00000238cb0b6c30 .scope module, "and1" "and_gate" 2 14, 3 13 0, S_00000238cb0b6aa0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+L_00000238cb0b5f10 .functor AND 1, v00000238cb0b4da0_0, o00000238cb0b7008, C4<1>, C4<1>;
+v00000238cb0a7040_0 .net "a", 0 0, v00000238cb0b4da0_0;  alias, 1 drivers
+v00000238cb082d20_0 .net "b", 0 0, o00000238cb0b7008;  alias, 0 drivers
+v00000238cb082dc0_0 .net "out", 0 0, L_00000238cb0b5f10;  alias, 1 drivers
+S_00000238cb082e60 .scope module, "and2" "and_gate" 2 16, 3 13 0, S_00000238cb0b6aa0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "out";
+L_00000238cb1ebde0 .functor AND 1, v00000238cb0b4d00_0, v00000238cb0b48f0_0, C4<1>, C4<1>;
+v00000238cb082ff0_0 .net "a", 0 0, v00000238cb0b4d00_0;  alias, 1 drivers
+v00000238cb083090_0 .net "b", 0 0, v00000238cb0b48f0_0;  alias, 1 drivers
+v00000238cb0b4580_0 .net "out", 0 0, L_00000238cb1ebde0;  alias, 1 drivers
+S_00000238cb0b4620 .scope module, "dff1" "posDFF" 2 15, 3 1 0, S_00000238cb0b6aa0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "in";
+    .port_info 2 /OUTPUT 1 "out";
+    .port_info 3 /OUTPUT 1 "not_out";
+v00000238cb0b47b0_0 .net "clk", 0 0, o00000238cb0b7218;  alias, 0 drivers
+v00000238cb0b4850_0 .net "in", 0 0, L_00000238cb0b5f10;  alias, 1 drivers
+v00000238cb0b48f0_0 .var "not_out", 0 0;
+v00000238cb0b4990_0 .var "out", 0 0;
+E_00000238cb0a5070 .event posedge, v00000238cb0b47b0_0;
+S_00000238cb0b4a30 .scope module, "dff2" "posDFF" 2 17, 3 1 0, S_00000238cb0b6aa0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "in";
+    .port_info 2 /OUTPUT 1 "out";
+    .port_info 3 /OUTPUT 1 "not_out";
+v00000238cb0b4bc0_0 .net "clk", 0 0, o00000238cb0b7218;  alias, 0 drivers
+v00000238cb0b4c60_0 .net "in", 0 0, L_00000238cb1ebde0;  alias, 1 drivers
+v00000238cb0b4d00_0 .var "not_out", 0 0;
+v00000238cb0b4da0_0 .var "out", 0 0;
+    .scope S_00000238cb0b4620;
+T_0 ;
+    %wait E_00000238cb0a5070;
+    %load/vec4 v00000238cb0b4850_0;
+    %assign/vec4 v00000238cb0b4990_0, 0;
+    %load/vec4 v00000238cb0b4850_0;
+    %inv;
+    %assign/vec4 v00000238cb0b48f0_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000238cb0b4a30;
+T_1 ;
+    %wait E_00000238cb0a5070;
+    %load/vec4 v00000238cb0b4c60_0;
+    %assign/vec4 v00000238cb0b4da0_0, 0;
+    %load/vec4 v00000238cb0b4c60_0;
+    %inv;
+    %assign/vec4 v00000238cb0b4d00_0, 0;
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "div2or3.v";
+    "./posDFF.v";

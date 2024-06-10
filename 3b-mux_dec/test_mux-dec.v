@@ -1,3 +1,5 @@
+`include "mux-dec.v"
+
 module test_mux_dec; 
     wire [2:0] mux_out; 
     wire [7:0] not_dec_out,dec_out; 
