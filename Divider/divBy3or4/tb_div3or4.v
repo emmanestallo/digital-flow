@@ -1,4 +1,4 @@
-`include "div3or4.v"
+`include "divBy3or4.v"
 `timescale 1ns/1ps 
 
 module tb_div3or4();
@@ -39,3 +39,5 @@ end
 initial #50 $finish; 
 
 endmodule
+
+

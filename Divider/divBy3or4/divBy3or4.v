@@ -1,6 +1,6 @@
-`include "../buildingBlocks/d_flipflop.v"
-`include "../buildingBlocks/and_gate.v"
-`include "../buildingBlocks/or_gate.v" 
+`include "../buildingBlocks/dFlipFlop.v"
+`include "../buildingBlocks/andGate.v"
+`include "../buildingBlocks/orGate.v" 
 
 module divBy3or4(clk_in,mod,clk_out);
 input clk_in;
